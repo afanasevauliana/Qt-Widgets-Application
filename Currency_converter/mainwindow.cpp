@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QMessageBox>
+#include <QPropertyAnimation>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -15,6 +16,11 @@ MainWindow::MainWindow(QWidget *parent)
     exchangeRates["RUB"] = 92.0;
     ui->fromCurrency->addItems(exchangeRates.keys());
     ui->toCurrency->addItems(exchangeRates.keys());
+    QPropertyAnimation *anim = new QPropertyAnimation(ui->convertButton, "geometry");
+    anim->setDuration(100);
+    anim->setKeyValueAt(0, ui->convertButton->geometry());
+    anim->setKeyValueAt(0.5, ui->convertButton->geometry().adjusted(-5, -5, 5, 5));
+    anim->setKeyValueAt(1, ui->convertButton->geometry());
     connect(ui->convertButton, &QPushButton::clicked,
             this, &MainWindow::onConvertButtonClicked);
 }

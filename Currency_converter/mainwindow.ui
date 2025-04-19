@@ -15,6 +15,8 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QWidget {
+    background-color: #333;
+    color: #fff;
     font-size: 14px;
 }
 
@@ -27,6 +29,17 @@ QPushButton {
 
 QPushButton:hover {
     background-color: #45a049;
+}
+
+QLineEdit {
+    background-color: #555;
+    color: #fff;
+    border: 1px solid #777;
+}
+
+QComboBox {
+    background-color: #555;
+    color: #fff;
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">

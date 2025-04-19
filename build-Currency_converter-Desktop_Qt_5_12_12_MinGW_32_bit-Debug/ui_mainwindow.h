@@ -40,6 +40,8 @@ public:
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->resize(800, 600);
         MainWindow->setStyleSheet(QString::fromUtf8("QWidget {\n"
+"    background-color: #333;\n"
+"    color: #fff;\n"
 "    font-size: 14px;\n"
 "}\n"
 "\n"
@@ -52,24 +54,35 @@ public:
 "\n"
 "QPushButton:hover {\n"
 "    background-color: #45a049;\n"
+"}\n"
+"\n"
+"QLineEdit {\n"
+"    background-color: #555;\n"
+"    color: #fff;\n"
+"    border: 1px solid #777;\n"
+"}\n"
+"\n"
+"QComboBox {\n"
+"    background-color: #555;\n"
+"    color: #fff;\n"
 "}"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         fromCurrency = new QComboBox(centralwidget);
         fromCurrency->setObjectName(QString::fromUtf8("fromCurrency"));
-        fromCurrency->setGeometry(QRect(290, 60, 73, 22));
+        fromCurrency->setGeometry(QRect(290, 60, 121, 22));
         toCurrency = new QComboBox(centralwidget);
         toCurrency->setObjectName(QString::fromUtf8("toCurrency"));
-        toCurrency->setGeometry(QRect(290, 110, 73, 22));
+        toCurrency->setGeometry(QRect(290, 110, 121, 22));
         amountInput = new QLineEdit(centralwidget);
         amountInput->setObjectName(QString::fromUtf8("amountInput"));
-        amountInput->setGeometry(QRect(270, 160, 113, 22));
+        amountInput->setGeometry(QRect(270, 160, 161, 22));
         convertButton = new QPushButton(centralwidget);
         convertButton->setObjectName(QString::fromUtf8("convertButton"));
-        convertButton->setGeometry(QRect(280, 210, 93, 28));
+        convertButton->setGeometry(QRect(280, 210, 141, 28));
         resultLabel = new QLabel(centralwidget);
         resultLabel->setObjectName(QString::fromUtf8("resultLabel"));
-        resultLabel->setGeometry(QRect(300, 270, 55, 16));
+        resultLabel->setGeometry(QRect(300, 270, 111, 16));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
