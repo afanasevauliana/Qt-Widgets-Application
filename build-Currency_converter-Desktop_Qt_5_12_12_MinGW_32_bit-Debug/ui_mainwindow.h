@@ -11,8 +11,12 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QComboBox>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 
@@ -22,6 +26,11 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
+    QComboBox *fromCurrency;
+    QComboBox *toCurrency;
+    QLineEdit *amountInput;
+    QPushButton *convertButton;
+    QLabel *resultLabel;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -30,11 +39,41 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->resize(800, 600);
+        MainWindow->setStyleSheet(QString::fromUtf8("QWidget {\n"
+"    font-size: 14px;\n"
+"}\n"
+"\n"
+"QPushButton {\n"
+"    background-color: #4CAF50;\n"
+"    color: white;\n"
+"    border: none;\n"
+"    padding: 8px 16px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #45a049;\n"
+"}"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
+        fromCurrency = new QComboBox(centralwidget);
+        fromCurrency->setObjectName(QString::fromUtf8("fromCurrency"));
+        fromCurrency->setGeometry(QRect(290, 60, 73, 22));
+        toCurrency = new QComboBox(centralwidget);
+        toCurrency->setObjectName(QString::fromUtf8("toCurrency"));
+        toCurrency->setGeometry(QRect(290, 110, 73, 22));
+        amountInput = new QLineEdit(centralwidget);
+        amountInput->setObjectName(QString::fromUtf8("amountInput"));
+        amountInput->setGeometry(QRect(270, 160, 113, 22));
+        convertButton = new QPushButton(centralwidget);
+        convertButton->setObjectName(QString::fromUtf8("convertButton"));
+        convertButton->setGeometry(QRect(280, 210, 93, 28));
+        resultLabel = new QLabel(centralwidget);
+        resultLabel->setObjectName(QString::fromUtf8("resultLabel"));
+        resultLabel->setGeometry(QRect(300, 270, 55, 16));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
+        menubar->setGeometry(QRect(0, 0, 800, 25));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -48,6 +87,8 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
+        convertButton->setText(QApplication::translate("MainWindow", "PushButton", nullptr));
+        resultLabel->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
     } // retranslateUi
 
 };
